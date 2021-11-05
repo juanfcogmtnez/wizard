@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <data>
+        
+        <act_window id="custom_action"
+                    name="Custom Action"
+                    src_model="sale.order"
+                    res_model="wizard.sale.order.custom"
+                    view_mode="form"
+                    target="new"
+                    multi="True"/>
+        <record model="ir.ui.view" id="custom_form_view">
+            <field name="name">wizard.sale.order.custom.form</field>
+            <field name="model">wizard.sale.order.custom.cancel</field>
+            <field name="arch" type="xml">
+                <form string="Quotation">
+                    <group>
+                        <field name="order_ids"/>
+                    </group>
+                    <footer>
+                        <button name="confirm_action" type="object" string="Confirm Action" class="oe_highlight"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
